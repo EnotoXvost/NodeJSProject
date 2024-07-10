@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+main.not-found {
+    padding: 50px 20px;
+}
+
+main.not-found h1 {
+    font-size: 48px;
+    color: #555;
+}
+
+main.not-found p {
+    font-size: 18px;
+    color: #666;
+}
+
+.vinyl-image {
+    max-width: 200px;
+    margin: 20px 0;
+}
+
+main.not-found a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #F52F5E;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+main.not-found a:hover {
+    background-color: #f17491;
+}

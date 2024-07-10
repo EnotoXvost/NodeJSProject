@@ -1,0 +1,32 @@
+header {
+    background-color: #F52F5E;
+    color: white;
+    padding: 10px 0;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f17491;
+}

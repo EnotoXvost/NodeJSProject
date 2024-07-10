@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/header_footer.css">
+  <link rel="stylesheet" href="css/admin.css">
+  
+  <title>ADMINKA</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Главная страница</a></li>
+                <li><a href="/login">Регистрация</a></li>
+                <li><a href="/catalog">Каталог</a></li>
+                <li><a href="/about">О нас</a></li>
+
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <div class="container">
+            <div class="admin-content">
+                <div class="admin-actions">
+                    <button id="add-btn">Добавить товар</button>
+                    <button id="edit-btn">Редактировать товар</button>
+                    <button id="delete-btn">Удалить товар</button>
+                </div>
+                <div id="add-content" class="content-management">
+                    <h2>Добавить товар</h2>
+                    <form id="add-form" enctype="multipart/form-data" action="/add-product" method="post">
+                        <div>
+                            <label for="nameInput">Название товара:</label>
+                            <input type="text" id="nameInput" name="nameInput" required>
+                        </div>
+                        <div>
+                            <label for="priceInput">Цена:</label>
+                            <input type="number" id="priceInput" name="priceInput" required>
+                        </div>
+                        <div>
+                            <label for="imageInput">Изображение:</label>
+                            <input type="file" id="imageInput" name="imageInput" required>
+                        </div>
+                        <div>
+                            <label for="genreInput">Жанр:</label>
+                            <select id="genreInput" name="genreInput" required>
+                                <option value="">Выберите жанр</option>
+                                <!-- Жанры будут загружены здесь -->
+                            </select>
+                        </div>
+                        <button type="submit">Добавить</button>
+                    </form>
+                </div>
+                <div id="edit-content" class="content-management">
+                    <h2>Редактировать товар</h2>
+                    <div id="product-cards-edit" class="card-container">
+                        <% products.forEach(product => { %>
+                            <div class="card">
+                                <h3><%= product.name %></h3>
+                                <p>Цена: <%= product.price %> руб.</p>
+                                <p>Жанр: <%= product.genre %></p>
+                                <img src="/images/<%= product.image_filename %>" alt="<%= product.name %>" style="max-width: 100%;">
+                                <button class="edit-btn" id="edit-btn" data-id="<%= product.id %>">Редактировать</button>
+                            </div>
+                        <% }); %>
+                    </div>
+                    <div id="edit-form-container" class="edit-form-container">
+                        <h2>Редактировать товар</h2>
+                        <form id="edit-form" enctype="multipart/form-data">
+                            <div>
+                                <label for="editnameInput">Название товара:</label>
+                                <input type="text" id="editnameInput" name="editnameInput" required>
+                            </div>
+                            <div>
+                                <label for="editpriceInput">Цена:</label>
+                                <input type="number" id="editpriceInput" name="editpriceInput" required>
+                            </div>
+                            <div>
+                                <label for="editimageInput">Изображение:</label>
+                                <input type="file" id="editimageInput" name="editimageInput">
+                            </div>
+                            <div>
+                                <label for="genreInput">Жанр:</label>
+                                <select id="editgenreInput" name="editgenreInput" >
+                                    <option value="">Выберите жанр</option>
+
+                                </select>
+                            </div>
+                            <input type="hidden" id="editProductId" name="editProductId">
+                            <button type="submit">Сохранить изменения</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="delete-content" class="content-management">
+                    <h2>Удалить товар</h2>
+                    <div id="product-cards-delete" class="card-container">
+                        <% products.forEach(product => { %>
+                            <div class="card">
+                                <input type="checkbox" class="product-checkbox" value="<%= product.id %>">
+                                <h3><%= product.name %></h3>
+                                <p>Цена: <%= product.price %> руб.</p>
+                                <p>Жанр: <%= product.genre %></p>
+                                <img src="/images/<%= product.image_filename %>" alt="<%= product.name %>" style="max-width: 100%;">
+                            </div>
+                        <% }); %>
+                    </div>
+                    <button id="delete-selected-btn">Удалить выбранные</button>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>

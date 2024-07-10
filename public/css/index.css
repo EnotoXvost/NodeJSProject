@@ -1,0 +1,153 @@
+/* Общие стили для страницы */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+}
+
+.info-block {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.info-block p {
+    margin: 0 0 10px;
+}
+
+.info-block button {
+    background-color: #F52F5E;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.info-block button:hover {
+    background-color: #f17491;
+}
+
+/* Стили для боковой панели фильтров */
+.filters {
+    width: 25%;
+    margin-right: 20px;
+    background-color: #f4f4f4;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+.filters h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.filters form div {
+    margin-bottom: 10px;
+}
+
+.filters label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.filters input, .filters select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.filters button {
+    background-color: #F52F5E;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.filters button:hover {
+    background-color: #f17491;
+}
+
+.products {
+    width: 75%;
+}
+
+.products h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product-item{
+    width: 23%;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px 1%;
+    box-sizing: border-box;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.product-item h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product-item p {
+    margin: 5px 0;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #e74c3c; 
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+button {
+    background-color :#F52F5E;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color:#f17491;
+}

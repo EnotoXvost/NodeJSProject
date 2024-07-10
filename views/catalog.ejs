@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="css/header_footer.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Главная страница</a></li>
+                <li><a href="/login">Регистрация</a></li>
+                <li><a href="/catalog">Каталог</a></li>
+                <li><a href="/about">О нас</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container"> 
+            <aside class="filters">
+                <h2>Фильтрация товаров</h2>
+                <form id="filter-form">
+                    <div>
+                        <label for="genre">Жанр:</label>
+                        <select id="genre" name="genre">
+                            <option value="all">Все</option>
+                            <% genres.forEach(genre => { %>
+                                <option value="<%= genre.genre_name %>"><%= genre.genre_name %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="price-range">Ценовой диапазон:</label>
+                        <input type="number" id="price-min" name="price_min" placeholder="Мин. цена">
+                        <input type="number" id="price-max" name="price_max" placeholder="Макс. цена">
+                    </div>
+                    <button type="submit">Применить</button>
+                    <button type="button" id="reset-filters">Показать все</button>
+                </form>
+            </aside>
+            <section class="products">
+                <h2>Каталог</h2>
+                <div id="product-list">
+                    <% products.forEach(product => { %>
+                        <div class="product-item">
+                            <img src="/images/<%= product.image_filename %>" alt="<%= product.name %>">
+                            <h3><%= product.name %></h3>
+                            <p>Жанр: <%= product.genre %></p>
+                            <p class="product-price">Цена: <%= product.price %> руб.</p>
+                        </div>
+                    <% }) %>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Магазин виниловых пластинок</p>
+    </footer>
+
+    <script src="../js/catalog.js"></script>
+</body>
+</html>

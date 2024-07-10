@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/header_footer.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Главная страница</a></li>
+                <li><a href="/login">Регистрация</a></li>
+                <li><a href="/catalog">Каталог</a></li>
+                <li><a href="/about">О нас</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <section class="product-detail">
+                <h1><%= product.name %></h1>
+                <img src="/images/<%= product.image_filename %>" alt="<%= product.name %>">
+                <p><strong>Жанр:</strong> <%= product.genre %></p>
+                <p><strong>Цена:</strong> <%= product.price %> руб.</p>
+                <p><strong>Описание:</strong> <%= product.description %></p>
+
+                <button onclick="buyProduct('<%= product.id %>')">Купить</button>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Магазин виниловых пластинок</p>
+    </footer>
+
+    <script>
+         function buyProduct(productId) {
+            fetch(`/buy-product/${productId}`, {
+                method: 'POST'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Ошибка при покупке товара');
+                }
+                alert('Товар успешно куплен');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Произошла ошибка при покупке товара');
+            });
+        }
+    </script>
+</body>
+</html>
